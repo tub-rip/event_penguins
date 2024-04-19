@@ -1,0 +1,6 @@
+PyYAML~=6.0.1
+h5py~=3.7.0
+pandas~=1.5.2
+joblib~=1.4.0
+absl-py
+tqdm

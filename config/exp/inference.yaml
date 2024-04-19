@@ -1,0 +1,25 @@
+common:
+  data_path: data/preprocessed.h5
+
+proposals:
+  bin_width: 0.033  # s
+  percentile: 1  # %
+  nms_threshold: 0.95
+
+classification:
+  # TSN
+  num_tsn_samples: 7
+  augment_factor: 3
+  model_path: models/model.pk
+
+  # Image Representation
+  sample_duration: 1  # [s]
+  decay: 5e-6
+  nms_threshold: 0.5
+  batch_size: 8
+
+evaluation:
+  tiou_thresholds: [0.1, 0.3, 0.5, 0.7]
+  ground_truth_filename: config/annotations/annotations.json
+
+output_dir: output/inference/run

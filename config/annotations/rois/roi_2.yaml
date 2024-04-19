@@ -1,0 +1,96 @@
+N01:
+  bbox:
+    xmax: 132
+    xmin: 0
+    ymax: 260
+    ymin: 140
+N02:
+  bbox:
+    xmax: 294
+    xmin: 127
+    ymax: 260
+    ymin: 145
+N04:
+  bbox:
+    xmax: 105
+    xmin: 0
+    ymax: 149
+    ymin: 68
+N05:
+  bbox:
+    xmax: 284
+    xmin: 170
+    ymax: 156
+    ymin: 100
+N07:
+  bbox:
+    xmax: 59
+    xmin: 0
+    ymax: 94
+    ymin: 43
+N08:
+  bbox:
+    xmax: 167
+    xmin: 74
+    ymax: 121
+    ymin: 67
+N09:
+  bbox:
+    xmax: 262
+    xmin: 183
+    ymax: 104
+    ymin: 64
+N10:
+  bbox:
+    xmax: 37
+    xmin: 0
+    ymax: 55
+    ymin: 8
+N11:
+  bbox:
+    xmax: 105
+    xmin: 37
+    ymax: 79
+    ymin: 20
+N12:
+  bbox:
+    xmax: 169
+    xmin: 110
+    ymax: 84
+    ymin: 44
+N13:
+  bbox:
+    xmax: 273
+    xmin: 201
+    ymax: 73
+    ymin: 31
+N14:
+  bbox:
+    xmax: 108
+    xmin: 68
+    ymax: 42
+    ymin: 3
+N15:
+  bbox:
+    xmax: 210
+    xmin: 142
+    ymax: 65
+    ymin: 24
+N16:
+  bbox:
+    xmax: 152
+    xmin: 106
+    ymax: 36
+    ymin: 0
+N17:
+  bbox:
+    xmax: 346
+    xmin: 273
+    ymax: 188
+    ymin: 113
+N18:
+  bbox:
+    xmax: 346
+    xmin: 287
+    ymax: 122
+    ymin: 74
