@@ -136,7 +136,7 @@ We provide the labels for completeness but they are not considered in our method
 
 ## Acknowledgements
 
-The evaluation for activity detection is largely inspired by [ActivityNet](https://github.com/activitynet/ActivityNet). We thank the authors for there excellent work.
+The evaluation for activity detection is largely inspired by [ActivityNet](https://github.com/activitynet/ActivityNet). We thank the authors for their excellent work.
 
 ## Additional Resources
 
