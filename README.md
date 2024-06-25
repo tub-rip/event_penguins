@@ -15,11 +15,12 @@ This is the official repository for **Low-power, Continuous Remote Behavioral Lo
 If you use this work in your research, please consider citing:
 
 ```bibtex
-@InProceedings{Hamann24cvpr,
-  author        = {Hamann, Friedhelm and Ghosh, Suman and Martinez, Ignacio Juarez and Hart, Tom and Kacelnik, Alex and Gallego, Guillermo},
-  title         = {Low-power, Continuous Remote Behavioral Localization with Event Cameras},
-  booktitle     = {{IEEE} Conf. Comput. Vis. Pattern Recog. (CVPR)},
-  year          = 2024
+@inproceedings{Hamann24cvpr,
+  title={Low-power Continuous Remote Behavioral Localization with Event Cameras},
+  author={Hamann, Friedhelm and Ghosh, Suman and Martinez, Ignacio Juarez and Hart, Tom and Kacelnik, Alex and Gallego, Guillermo},
+  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
+  pages={18612--18621},
+  year={2024}
 }
 ```
 
