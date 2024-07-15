@@ -15,12 +15,13 @@ This is the official repository for **Low-power, Continuous Remote Behavioral Lo
 If you use this work in your research, please consider citing:
 
 ```bibtex
-@inproceedings{Hamann24cvpr,
-  title={Low-power Continuous Remote Behavioral Localization with Event Cameras},
-  author={Hamann, Friedhelm and Ghosh, Suman and Martinez, Ignacio Juarez and Hart, Tom and Kacelnik, Alex and Gallego, Guillermo},
-  booktitle={Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition},
-  pages={18612--18621},
-  year={2024}
+@InProceedings{Hamann24cvpr,
+    author    = {Hamann, Friedhelm and Ghosh, Suman and Martinez, Ignacio Juarez and Hart, Tom and Kacelnik, Alex and Gallego, Guillermo},
+    title     = {Low-power Continuous Remote Behavioral Localization with Event Cameras},
+    booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+    month     = {June},
+    year      = {2024},
+    pages     = {18612-18621}
 }
 ```
 
@@ -138,6 +139,11 @@ We provide the labels for completeness but they are not considered in our method
 ## Acknowledgements
 
 The evaluation for activity detection is largely inspired by [ActivityNet](https://github.com/activitynet/ActivityNet). We thank the authors for their excellent work.
+
+## In the Press
+
+* [TU Berlin Press Release](https://www.tu.berlin/ueber-die-tu-berlin/profil/pressemitteilungen-nachrichten/pinguine-in-ekstase)
+* [Tagesspiegel Article (German)](https://www.tagesspiegel.de/wissen/tierbeobachtung-in-der-antarktis-das-ratsel-der-ekstatischen-pinguine-11967704.html)
 
 ## Additional Resources
 
