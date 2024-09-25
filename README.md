@@ -10,6 +10,21 @@ This is the official repository for **Low-power, Continuous Remote Behavioral Lo
 
 [![Low-power, Continuous Remote Behavioral Localization with Event Cameras](docs/eventpenguins_yt_thumbnail.png)](https://youtu.be/o79wbZh0gU4)
 
+## Table of Contents
+
+1. [Citation](#citation)
+2. [Quickstart](#quickstart)
+   - [Setup](#setup)
+   - [Preprocessing the data](#preprocessing-the-data)
+   - [Inference](#inference)
+3. [Details](#details)
+   - [Original Data](#original-data)
+   - [Pre-processed Data](#pre-processed-data)
+   - [Annotations](#annotations)
+4. [Acknowledgements](#acknowledgements)
+5. [In the Press](#in-the-press)
+6. [Additional Resources](#additional-resources)
+
 ## Citation
 
 If you use this work in your research, please consider citing:
@@ -31,36 +46,57 @@ If you use this work in your research, please consider citing:
 
 You can use [Miniconda](https://docs.conda.io/en/latest/miniconda.html) to set up an environment:
 
-    conda create --name eventpenguins python=3.8
-    conda activate eventpenguins
+```bash
+conda create --name eventpenguins python=3.8
+conda activate eventpenguins
+```
 
 Install PyTorch by choosing a command that matches your CUDA version. You can find the compatible commands on the [PyTorch official website](https://pytorch.org/get-started/locally/) (tested with PyTorch 2.2.2), e.g.:
 
-    conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
+```bash
+conda install pytorch torchvision pytorch-cuda=12.1 -c pytorch -c nvidia
+```
 
 Install other required packages:
 
-    pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
+```
 
 ### Preprocessing the data
 
-Create a folder for the data
+1. Create a folder for the data:
 
-    cd <project-root>
-    mkdir data
+```bash
+cd <project-root>
+mkdir data
+```
 
-[Download the data](https://drive.google.com/drive/folders/1VoKEg6CSITmPH27R19tGzyzbUIrmhRDV?usp=drive_link) and save it in `<project-root>/data` create the pre-processed dataset with the following command:
+2. [Download the data](https://drive.google.com/drive/folders/1VoKEg6CSITmPH27R19tGzyzbUIrmhRDV?usp=drive_link) and save it in `<project-root>/data`.
 
-    python scripts/preprocess.py --data_root data/EventPenguins --output_dir data --recording_info_path config/annotations/recording_info.csv
+3. Create the pre-processed dataset with the following command:
+
+```bash
+python scripts/preprocess.py --data_root data/EventPenguins --output_dir data --recording_info_path config/annotations/recording_info.csv
+```
 
 This crops the events according to the pre-annotated nests and stores the recordings according to the split specified in [the paper](https://arxiv.org/pdf/2312.03799.pdf).
 
 ### Inference
 
-Create a folder models (`mkdir models`), download the pre-trained model weights from [here](https://drive.google.com/drive/folders/1A4JB97u4879oQ88FsgXa_LAU42ffpW1K?usp=sharing) and save them in the model folder.
-Now you can run inference with the following command:
+1. Create a folder for models:
 
-    python scripts/inference.py --config config/exp/inference.yaml --verbose
+```bash
+mkdir models
+```
+
+2. Download the pre-trained model weights from [here](https://drive.google.com/drive/folders/1A4JB97u4879oQ88FsgXa_LAU42ffpW1K?usp=sharing) and save them in the `models` folder.
+
+3. Run inference with the following command:
+
+```bash
+python scripts/inference.py --config config/exp/inference.yaml --verbose
+```
 
 ## Details
 
@@ -68,20 +104,20 @@ Now you can run inference with the following command:
 
 The [EventPenguins dataset](https://drive.google.com/drive/folders/1VoKEg6CSITmPH27R19tGzyzbUIrmhRDV?usp=drive_link) contains 24 ten-minute recordings, with 16 annotated nests.
 An overview of the data can be found in `config/annotations/recording_info.csv`.
-Each recording has a roi_group_id, which links to the location of the 16 pre-annotated regions of interest, which can be found in `config/annotations/rois` (new set of ROI's when camera was moved).
-The dataset is structured as followed:
+Each recording has a `roi_group_id`, which links to the location of the 16 pre-annotated regions of interest, which can be found in `config/annotations/rois` (new set of ROIs when the camera was moved).
+The dataset is structured as follows:
 
-```shell
-|── EventPenguins
-│   ├── <yy-mm-dd>_<hh-mm-ss> # (those folders are referred to as "recordings")
-│              ├── frames/
-│                  ├── 000000000000.png
-│                  └── 000000000001.png
-│                    ...
-│              ├── events.h5
-│              ├── frame_timestamps.txt  # [us]
-│              └── metadata.yaml       
-│              ...
+```
+EventPenguins/
+├── <yy-mm-dd>_<hh-mm-ss>/  # (these folders are referred to as "recordings")
+│   ├── frames/
+│   │   ├── 000000000000.png
+│   │   ├── 000000000001.png
+│   │   └── ...
+│   ├── events.h5
+│   ├── frame_timestamps.txt  # [us]
+│   └── metadata.yaml       
+└── ...
 ```
 
 Please note that we do not use the grayscale frames in our method but provide them for completeness.
@@ -92,7 +128,7 @@ Please note that we do not use the grayscale frames in our method but provide th
 
 The processed data is stored in a single HDF5 file named `preprocessed.h5`. The file structure is organized as follows:
 
-- Each ten minute recording is stored in a group labeled by its timestamp (e.g., `22-01-12_17-26-00`).
+- Each ten-minute recording is stored in a group labeled by its timestamp (e.g., `22-01-12_17-26-00`).
 - Each group (timestamp) contains multiple subgroups, each corresponding to a specific ROI (nest) identified by an ID (e.g., `N01`).
 - Each ROI subgroup contains:
   - An `events` dataset, where each event is represented as a row `[x, y, t, p]` indicating the event's x-position, y-position, timestamp (us), and polarity, respectively.
@@ -122,19 +158,24 @@ The structure is very similar to [ActivityNet](https://github.com/activitynet/Ac
           {
             "label": <label>,
             "segment": [
-              <t_start>
+              <t_start>,
               <t_end>
             ]
           },
           ...
+        ]
+      }
+    }
+  }
+}
 ```
 * `<yy-mm-dd>_<hh-mm-ss>` is the identifier for a ten-minute recording
 * `roi_id` is an integer number encoding the nest
-* `t_start` and `t_end` is the start and end of an action in seconds 
-* the label is one of `["ed", "adult_flap", "chick_flap"]`.
+* `t_start` and `t_end` are the start and end times of an action in seconds 
+* The `label` is one of `["ed", "adult_flap", "chick_flap"]`.
 
 `"adult_flap"` and `"chick_flap"` are other types of wing flapping easily confused with the ecstatic display (`ed`).
-We provide the labels for completeness but they are not considered in our method.
+We provide these labels for completeness, but they are not considered in our method.
 
 ## Acknowledgements
 
