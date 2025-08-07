@@ -1,5 +1,5 @@
 common:
-  data_path: data/preprocessed.h5
+  data_path: /home/gabriel.kofler/Project/event_penguins/scripts/preprocessed_output_training/preprocessed_train.h5
 
 proposals:
   bin_width: 0.033  # s
@@ -20,6 +20,6 @@ classification:
 
 evaluation:
   tiou_thresholds: [0.1, 0.3, 0.5, 0.7]
-  ground_truth_filename: config/annotations/annotations.json
+  ground_truth_filename: /home/gabriel.kofler/Project/ground_truth/ground_truth.json
 
 output_dir: output/inference/run

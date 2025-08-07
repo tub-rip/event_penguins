@@ -67,7 +67,7 @@ def main(argv):
     evaluation_config = config["evaluation"]
     evaluator = DetectionsEvaluator(
         prediction_filename=pred_path,
-        valid_labels="ed",
+        valid_labels=["Diving", "FrisbeeCatch", "ThrowDiscus", "HighJump", "LongJump"],
         valid_sequences=list(results["results"].keys()),
         **evaluation_config,
     )
